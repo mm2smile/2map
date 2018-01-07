@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"-->
+    <title>Sky</title>
+</head>
+<body>
+    <section>
+        <form action="" method="POST">
+            <fieldset>
+                <legend id="legend">Enter Info</legend>
+                    <input type="text" id="loc" name="loc" placeholder="Location"> 
+                    <input list="dt" name="month" placeholder="Month">
+                    <datalist id="dt">
+                        <option value="October">
+                        <option value="November">
+                        <option value="December">
+                        <option value="January">
+                        <option value="February">
+                    </datalist>
+                    <input type="number" name="day" id="day">
+                    <script>
+                        document.getElementById("geo").setAttribute("placeholder", "Geo")
+                    </script>
+            </fieldset>
+        </form>
+    </section>
+    <article>
+        <h1>You are </h1>
+        <p id="acur">Aproximately </p>
+        <button onclick="getLocation()">Here</button>
+        <h3 id="here">Here: </h3>
+        <p id="time">At: </p>
+    </article>
+    <script>
+        var x = document.getElementById("here");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this who ever.";
+            }
+        }
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude; 
+            document.getElementById("acur").innerHTML = position.coords.accuracy;
+            document.getElementById("time").innerHTML = position.timestamp;
+            
+        }
+        </script>
+</body>
+</html>
