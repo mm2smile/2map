@@ -44,7 +44,7 @@
             }
         }
         function showPosition(position) {
-            x.innerHTML = position.coords.latitude + position.coords.longitude; 
+            x.innerHTML = position.coords.latitude + "," + position.coords.longitude; 
             document.getElementById("acur").innerHTML = position.coords.accuracy;
             document.getElementById("time").innerHTML = position.timestamp;
             
